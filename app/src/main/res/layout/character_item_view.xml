@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="16dp"
@@ -8,15 +9,90 @@
 
 
     <TextView
-        android:id="@+id/character_name"
+        android:id="@+id/name_label"
+        style="@style/MaterialLightBody1Secondary"
         android:layout_width="194dp"
         android:layout_height="25dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:text="Name"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/nickname_label"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+
+        android:id="@+id/character_name"
+        style="@style/MaterialLightSubheadone"
+        android:layout_width="191dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintRight_toRightOf="@+id/name_label"
+        app:layout_constraintStart_toStartOf="@+id/name_label"
+        app:layout_constraintTop_toBottomOf="@+id/name_label" />
+
+    <TextView
+        android:id="@+id/nickname_label"
+        style="@style/MaterialLightBody1Secondary"
+        android:layout_width="194dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Nickname"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/character_name" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="206dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/name_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="16dp" />
+        app:srcCompat="@drawable/male" />
 
+    <TextView
 
-</LinearLayout>
+        android:id="@+id/character_nickname"
+        style="@style/MaterialLightSubhead"
+        android:layout_width="191dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="5dp"
+        android:text="my nickname"
+        app:layout_constraintRight_toRightOf="@+id/nickname_label"
+        app:layout_constraintStart_toStartOf="@+id/nickname_label"
+        app:layout_constraintTop_toBottomOf="@+id/nickname_label" />
+
+    <TextView
+        android:id="@+id/dob_label"
+        style="@style/MaterialLightBody1Secondary"
+        android:layout_width="194dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:text="DOB (Age)"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/nickname_label"
+        app:layout_constraintTop_toBottomOf="@+id/character_nickname" />
+
+    <TextView
+
+        android:id="@+id/character_dob"
+        style="@style/MaterialLightSubhead"
+        android:layout_width="191dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:text="19-3-4554 (62)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/dob_label"
+        app:layout_constraintStart_toStartOf="@+id/dob_label"
+        app:layout_constraintTop_toBottomOf="@+id/dob_label" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
