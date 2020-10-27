@@ -19,8 +19,9 @@ object APIutil {
                 for (x in 0 until response.length()){
                     val character = response.getJSONObject(x)
                     val name = character.getString("name")
+                    val characterImage = character.getString("characterImage")
 
-                    val newCharacter = Character(name)
+                    val newCharacter = Character(name, characterImage)
                     this.characters.add(newCharacter)
                 }
                 complete(true)
