@@ -1,4 +1,4 @@
-package com.example.breakingbadapp
+package com.example.breakingbadapp.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.breakingbadapp.ui.main.*
+import com.example.breakingbadapp.R
+import com.example.breakingbadapp.framework.data.Character
+import com.example.breakingbadapp.framework.data.GET_CHARACTERS
+import com.example.breakingbadapp.presentation.adapter.CharacterAdapter
 import kotlinx.android.synthetic.main.main_activity.*
 import org.json.JSONException
 
@@ -54,7 +56,11 @@ class MainActivity : AppCompatActivity() {
                             val character = response.getJSONObject(x)
                             val name = character.getString("name")
                             val characterImageUri = character.getString("img")
-                            val newCharacter = Character(name, characterImageUri)
+                            val newCharacter =
+                                Character(
+                                    name,
+                                    characterImageUri
+                                )
                             this.characters.add(newCharacter)
                         }
 
@@ -63,11 +69,15 @@ class MainActivity : AppCompatActivity() {
 
                     }
 
-                    val adapter = CharacterAdapter(this, characters)
-                    val layout = LinearLayoutManager(this)
-                    character_list_view.layoutManager = layout
-                    character_list_view.addItemDecoration(DividerItemDecoration(this, 1))
-                    character_list_view.adapter = adapter
+                    val adapter =
+                        CharacterAdapter(
+                            this,
+                            characters
+                        )
+//                    val layout = LinearLayoutManager(this)
+//                    character_list_view.layoutManager = layout
+//                    character_list_view.addItemDecoration(DividerItemDecoration(this, 1))
+//                    character_list_view.adapter = adapter
 
                 },
                 Response.ErrorListener {

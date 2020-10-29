@@ -1,4 +1,4 @@
-package com.example.breakingbadapp.ui.main
+package com.example.breakingbadapp.framework.viewmodels
 
 import androidx.lifecycle.ViewModel
 
