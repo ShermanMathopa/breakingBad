@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 //                    .replace(R.id.container, MainFragment.newInstance())
 //                    .commitNow()
 //        }
-        getData() 
+     //   getData()
     }
 
 //    {"char_id":1,"name":"Walter White",
@@ -44,49 +44,53 @@ class MainActivity : AppCompatActivity() {
 //        "category":"Breaking Bad","
 //        better_call_saul_appearance":[]},
 
-    private fun getData() {
-        val charactersRequest =
-            JsonArrayRequest(
-                Request.Method.GET,
-                GET_CHARACTERS,
-                null,
-                Response.Listener { response ->
-                    try {
-                        for (x in 0 until response.length()) {
-                            val character = response.getJSONObject(x)
-                            val name = character.getString("name")
-                            val characterImageUri = character.getString("img")
-                            val newCharacter =
-                                Character(
-                                    name,
-                                    characterImageUri
-                                )
-                            this.characters.add(newCharacter)
-                        }
-
-                    } catch (e: JSONException) {
-                        Log.d("error", "errors")
-
-                    }
-
-                    val adapter =
-                        CharacterAdapter(
-                            this,
-                            characters
-                        )
-//                    val layout = LinearLayoutManager(this)
-//                    character_list_view.layoutManager = layout
-//                    character_list_view.addItemDecoration(DividerItemDecoration(this, 1))
-//                    character_list_view.adapter = adapter
-
-                },
-                Response.ErrorListener {
-                    Log.d("error", "errors")
-
-
-                })
-        val queue = Volley.newRequestQueue(this)
-        queue.add(charactersRequest)
-
-    }
+//    private fun getData() {
+//        val charactersRequest =
+//            JsonArrayRequest(
+//                Request.Method.GET,
+//                GET_CHARACTERS,
+//                null,
+//                Response.Listener { response ->
+//                    try {
+//                        for (x in 0 until response.length()) {
+//                            val character = response.getJSONObject(x)
+//                            val name = character.getString("name")
+//                            val dateOfBirth = character.getString("birthday")
+//                            val occupation = character.getString("occupation").toString()
+//                            val characterImageUri = character.getString("img")
+//                            val nickname = character.getString("nickname")
+//                            val portrayed = character.getString("portrayed")
+//                            val newCharacter =
+//                                Character(
+//                                    name, dateOfBirth, occupation, nickname, portrayed,
+//                                    characterImageUri
+//                                )
+//                            this.characters.add(newCharacter)
+//                        }
+//
+//                    } catch (e: JSONException) {
+//                        Log.d("error", "errors")
+//
+//                    }
+//
+////                    val adapter =
+////                        CharacterAdapter(
+////                            this,
+////                            characters
+////                        )
+////                    val layout = LinearLayoutManager(this)
+////                    character_list_view.layoutManager = layout
+////                    character_list_view.addItemDecoration(DividerItemDecoration(this, 1))
+////                    character_list_view.adapter = adapter
+//
+//                },
+//                Response.ErrorListener {
+//                    Log.d("error", "errors")
+//
+//
+//                })
+//        val queue = Volley.newRequestQueue(this)
+//        queue.add(charactersRequest)
+//
+//    }
 }

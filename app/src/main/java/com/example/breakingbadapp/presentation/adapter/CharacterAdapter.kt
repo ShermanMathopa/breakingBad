@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.breakingbadapp.R
 import com.example.breakingbadapp.framework.data.Character
 
-class CharacterAdapter(val context: Context, val characters: ArrayList<Character>): RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
+class CharacterAdapter(val characters: ArrayList<Character>, val action: ListAction): RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -25,6 +25,8 @@ class CharacterAdapter(val context: Context, val characters: ArrayList<Character
                 .load(character.characterImage)
                 .into(characterImage)
 
+            itemView.setOnClickListener { action.onClick(character.id) }
+
 
             //age- formatted
             // dateOfBirth.text = "\(character.dob) (\(character.age))" 1942-02-02 (45)
@@ -35,7 +37,7 @@ class CharacterAdapter(val context: Context, val characters: ArrayList<Character
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater =
-            LayoutInflater.from(context).inflate(R.layout.character_item_view, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.character_item_view, parent, false)
         return ViewHolder(layoutInflater)
     }
 
