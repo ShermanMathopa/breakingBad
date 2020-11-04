@@ -4,10 +4,9 @@ data class Character(
      var id: Long = 0,
      val name : String,
      val dateOfBirth: String,
-     val occupation : String,
-     val characterImage: String,
-     val nickname: String,
-     val Portrayed: String
+     val characterImageUri: String,
+     val nickname: String
+
 
 
 //    {"char_id":1,"name":"Walter White",

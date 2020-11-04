@@ -74,14 +74,14 @@ class MainFragment : Fragment(), ListAction {
                             val id = character.getLong("char_id")
                             val name = character.getString("name")
                             val dateOfBirth = character.getString("birthday")
-                            val occupation = character.getString("occupation").toString()
+                          //  val occupation = character.getString("occupation").toString()
                             val characterImageUri = character.getString("img")
                             val nickname = character.getString("nickname")
-                            val portrayed = character.getString("portrayed")
+                           // val portrayed = character.getString("portrayed")
                             val newCharacter =
                                 Character(
-                                    id, name, dateOfBirth, occupation, nickname, portrayed,
-                                    characterImageUri
+                                    id, name, dateOfBirth,  characterImageUri, nickname
+
                                 )
                             this.characters.add(newCharacter)
                         }

@@ -1,6 +1,5 @@
 package com.example.breakingbadapp.presentation.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,12 +16,17 @@ class CharacterAdapter(val characters: ArrayList<Character>, val action: ListAct
 
         val name = itemView.findViewById<TextView>(R.id.character_name)
         val characterImage = itemView.findViewById<ImageView>(R.id.characterImage)
+        val characterNickname = itemView.findViewById<TextView>(R.id.character_nickname)
+        val character_dob = itemView.findViewById<TextView>(R.id.character_dob)
+
 
         fun bindCharacter(character: Character) {
             name.text = character.name
+            characterNickname.text = character.nickname
+            character_dob.text = "${character.dateOfBirth} (age)"
 
             Glide.with(itemView.context)
-                .load(character.characterImage)
+                .load(character.characterImageUri)
                 .into(characterImage)
 
             itemView.setOnClickListener { action.onClick(character.id) }
