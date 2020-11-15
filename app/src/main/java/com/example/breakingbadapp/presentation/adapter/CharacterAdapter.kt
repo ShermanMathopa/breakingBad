@@ -8,9 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.breakingbadapp.R
-import com.example.breakingbadapp.framework.data.Character
+import com.example.breakingbadapp.framework.data.CharacterModel
 
-class CharacterAdapter(val characters: ArrayList<Character>, val action: ListAction): RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
+class CharacterAdapter(val characters: ArrayList<CharacterModel>, val action: ListAction): RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -20,7 +20,7 @@ class CharacterAdapter(val characters: ArrayList<Character>, val action: ListAct
         val character_dob = itemView.findViewById<TextView>(R.id.character_dob)
 
 
-        fun bindCharacter(character: Character) {
+        fun bindCharacter(character: CharacterModel) {
             name.text = character.name
             characterNickname.text = character.nickname
             character_dob.text = "${character.dateOfBirth} (age)"
