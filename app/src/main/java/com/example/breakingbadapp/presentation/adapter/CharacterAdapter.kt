@@ -9,21 +9,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.breakingbadapp.R
 import com.example.breakingbadapp.framework.data.CharacterModel
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.Period
+import java.util.*
 
 class CharacterAdapter(val characters: ArrayList<CharacterModel>, val action: ListAction): RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val name = itemView.findViewById<TextView>(R.id.character_name)
-        val characterImage = itemView.findViewById<ImageView>(R.id.characterImage)
-        val characterNickname = itemView.findViewById<TextView>(R.id.character_nickname)
-        val character_dob = itemView.findViewById<TextView>(R.id.character_dob)
+        val name: TextView = itemView.findViewById<TextView>(R.id.character_name)
+        val characterImage: ImageView = itemView.findViewById<ImageView>(R.id.characterImage)
+        val characterNickname: TextView = itemView.findViewById<TextView>(R.id.character_nickname)
+        val character_dob: TextView = itemView.findViewById<TextView>(R.id.character_dob)
 
 
         fun bindCharacter(character: CharacterModel) {
             name.text = character.name
             characterNickname.text = character.nickname
-            character_dob.text = "${character.dateOfBirth} (age)"
+            character_dob.text = "${character.dateOfBirth} (${calculateAge(character.dateOfBirth)})"
 
             Glide.with(itemView.context)
                 .load(character.characterImageUri)
@@ -54,4 +58,19 @@ class CharacterAdapter(val characters: ArrayList<CharacterModel>, val action: Li
         holder.bindCharacter(character)
     }
 
+}
+private fun calculateAge(dob : String) : Int{
+    var simpleDateFormat = SimpleDateFormat("MM-dd-yyyy")
+    val date1 = simpleDateFormat.parse(dob)
+
+    val calendar = Calendar.getInstance()
+    calendar.time = date1
+    val year: Int = calendar.get(Calendar.YEAR)
+    val month: Int = calendar.get(Calendar.MONTH) + 1
+    val date: Int = calendar.get(Calendar.DATE)
+    val l1: LocalDate = LocalDate.of(year,month, date)
+    val now1: LocalDate = LocalDate.now()
+    val diff1: Period = Period.between(l1, now1)
+
+    return diff1.years
 }
