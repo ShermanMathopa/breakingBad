@@ -1,15 +1,21 @@
 package com.example.breakingbadapp.framework.retrofit
 
 import com.google.gson.GsonBuilder
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+@Module
+@InstallIn(ActivityComponent::class)
 object ApiClient {
 
     var BASE_URL = "https://www.breakingbadapi.com/api/"
-    val getClient: CharacterInterface
+    val getClient: WebService
         get() {
 
             val gson = GsonBuilder()
@@ -25,7 +31,7 @@ object ApiClient {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
 
-            return retrofit.create(CharacterInterface::class.java)
+            return retrofit.create(WebService::class.java)
 
         }
 }

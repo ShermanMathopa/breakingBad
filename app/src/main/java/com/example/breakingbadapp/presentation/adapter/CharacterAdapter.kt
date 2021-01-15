@@ -8,13 +8,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.breakingbadapp.R
-import com.example.breakingbadapp.framework.data.CharacterModel
+import com.example.breakingbadapp.framework.data.CharactersModel
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.Period
 import java.util.*
 
-class CharacterAdapter(val characters: ArrayList<CharacterModel>, val action: ListAction): RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
+class CharacterAdapter(val characters: List<CharactersModel>, val action: ListAction): RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -24,10 +24,11 @@ class CharacterAdapter(val characters: ArrayList<CharacterModel>, val action: Li
         val character_dob: TextView = itemView.findViewById<TextView>(R.id.character_dob)
 
 
-        fun bindCharacter(character: CharacterModel) {
+        fun bindCharacter(character: CharactersModel) {
             name.text = character.name
             characterNickname.text = character.nickname
-            character_dob.text = "${character.dateOfBirth} (${calculateAge(character.dateOfBirth)})"
+          //  character_dob.text = "${character.dateOfBirth} (${calculateAge(character.dateOfBirth)})"
+            character_dob.text = character.dateOfBirth
 
             Glide.with(itemView.context)
                 .load(character.characterImageUri)

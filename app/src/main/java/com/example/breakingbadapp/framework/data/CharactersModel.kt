@@ -3,7 +3,7 @@ package com.example.breakingbadapp.framework.data
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class CharacterModel (
+data class CharactersModel (
         @Expose
         @SerializedName("char_id")
         var id: Long = 0,

@@ -9,7 +9,9 @@ import android.view.ViewGroup
 
 import com.example.breakingbadapp.R
 import com.example.breakingbadapp.framework.viewmodels.CharacterViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CharacterFragment : Fragment() {
 
     companion object {
