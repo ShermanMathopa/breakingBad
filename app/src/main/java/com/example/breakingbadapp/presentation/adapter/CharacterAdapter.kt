@@ -1,5 +1,6 @@
 package com.example.breakingbadapp.presentation.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,17 +25,23 @@ class CharacterAdapter(val characters: List<CharactersModel>, val action: ListAc
         val character_dob: TextView = itemView.findViewById<TextView>(R.id.character_dob)
 
 
+        @SuppressLint("SetTextI18n")
         fun bindCharacter(character: CharactersModel) {
             name.text = character.name
             characterNickname.text = character.nickname
-          //  character_dob.text = "${character.dateOfBirth} (${calculateAge(character.dateOfBirth)})"
-            character_dob.text = character.dateOfBirth
 
+            if (character.dateOfBirth == "Unknown") {
+                character_dob.text = character.dateOfBirth
+            } else {
+                character_dob.text = "${character.dateOfBirth} (${calculateAge(character.dateOfBirth!!)})"
+            }
             Glide.with(itemView.context)
                 .load(character.characterImageUri)
                 .into(characterImage)
 
-            itemView.setOnClickListener { action.onClick(character.id) }
+            itemView.setOnClickListener { action.onClick(character.id,
+                character.nickname!!,
+                character.dateOfBirth!!, character.characterImageUri!!, character.portrayed!! ) }
 
 
             //age- formatted
@@ -60,8 +67,9 @@ class CharacterAdapter(val characters: List<CharactersModel>, val action: ListAc
     }
 
 }
+@SuppressLint("SimpleDateFormat")
 private fun calculateAge(dob : String) : Int{
-    var simpleDateFormat = SimpleDateFormat("MM-dd-yyyy")
+    val simpleDateFormat = SimpleDateFormat("MM-dd-yyyy")
     val date1 = simpleDateFormat.parse(dob)
 
     val calendar = Calendar.getInstance()

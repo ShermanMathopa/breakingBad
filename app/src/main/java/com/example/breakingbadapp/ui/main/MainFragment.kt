@@ -41,45 +41,31 @@ class MainFragment : Fragment(), ListAction {
         progerssProgressDialog.setTitle("Loading")
         progerssProgressDialog.setCancelable(false)
         progerssProgressDialog.show()
-       // getData()
-      viewModel.characters.observe(viewLifecycleOwner){ characters ->
-          character_list_view.adapter = CharacterAdapter(characters, this)
-          character_list_view.layoutManager =
-              LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-          character_list_view.addItemDecoration(DividerItemDecoration(context, 1))
-          progerssProgressDialog.dismiss()
-      }
+
+        viewModel.characters.observe(viewLifecycleOwner) { characters ->
+            character_list_view.adapter = CharacterAdapter(characters, this)
+            character_list_view.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            character_list_view.addItemDecoration(DividerItemDecoration(context, 1))
+            progerssProgressDialog.dismiss()
+        }
 
     }
 
-    private fun goToCharacterDetails(id: Long = 0L) {
-        val action = MainFragmentDirections.actionMainFragmentToCharacterFragment(id)
+    private fun goToCharacterDetails(id: Long = 0L, nickname: String, dateOfBirth: String, image: String,portrayed: String) {
+        val action = MainFragmentDirections.actionMainFragmentToCharacterFragment(id, nickname, dateOfBirth, image, portrayed)
         //findNavController().navigate(action)
         Navigation.findNavController(character_list_view).navigate(action)
     }
 
-//    private fun getData() {
-//        val call: Call<List<CharacterModel>> = ApiClient.getClient.getCharacters()
-//        call.enqueue(object : Callback<List<CharacterModel>> {
-//
-//            override fun onFailure(call: Call<List<CharacterModel>>?, t: Throwable?) {
-//                progerssProgressDialog.dismiss()
-//            }
-//
-//            override fun onResponse(
-//                call: Call<List<CharacterModel>>, response: retrofit2.Response<List<CharacterModel>>
-//            ) {
-//                progerssProgressDialog.dismiss()
-//                characters.addAll(response.body()!!)
-//                character_list_view.adapter?.notifyDataSetChanged()
-//
-//            }
-//
-//        })
-//    }
-
-    override fun onClick(id: Long) {
-        goToCharacterDetails(id)
+    override fun onClick(
+        id: Long,
+        nickname: String,
+        dateOfBirth: String,
+        image: String,
+        portrayed: String
+    ) {
+        goToCharacterDetails(id, nickname, dateOfBirth, image, portrayed)
     }
 
 }

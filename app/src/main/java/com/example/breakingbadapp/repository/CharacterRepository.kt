@@ -1,10 +1,10 @@
 package com.example.breakingbadapp.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.breakingbadapp.framework.data.CharactersModel
 import com.example.breakingbadapp.framework.retrofit.AnalyticsModule
-import com.example.breakingbadapp.framework.retrofit.ApiClient
 import com.example.breakingbadapp.framework.retrofit.WebService
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,7 +24,7 @@ class CharacterRepository @Inject constructor( private val webservice: WebServic
            }
            // Error case is left out for brevity.
            override fun onFailure(call: Call<List<CharactersModel>>, t: Throwable) {
-               TODO()
+               Log.d("Error", "Failed to load characters")
            }
        })
        return data

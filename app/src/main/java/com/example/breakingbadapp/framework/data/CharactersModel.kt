@@ -9,16 +9,23 @@ data class CharactersModel (
         var id: Long = 0,
         @Expose
         @SerializedName("name")
-        val name : String,
+        val name : String? = null,
         @Expose
         @SerializedName("birthday")
-        val dateOfBirth: String,
+        val dateOfBirth: String? = null,
         @Expose
         @SerializedName("img")
-        val characterImageUri: String,
+        val characterImageUri: String? = null,
         @Expose
         @SerializedName("nickname")
-        val nickname: String
+        val nickname: String? = null,
+        @Expose
+        @SerializedName("portrayed")
+        val portrayed: String? = null
+//        @Expose
+//        @SerializedName( "occupation")
+//        val  occupation: List<String>? = null
+
 )
 //    {"char_id":1,"name":"Walter White",
 //        "birthday":"09-07-1958",

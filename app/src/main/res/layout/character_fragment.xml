@@ -7,11 +7,13 @@
     tools:context=".ui.main.CharacterFragment">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/character_full_image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="330dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:src="@drawable/male"
+        app:layout_constraintBottom_toTopOf="@+id/name_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,12 +24,11 @@
         style="@style/MaterialLightBody1Secondary"
         android:layout_width="194dp"
         android:layout_height="25dp"
-        android:layout_marginTop="32dp"
         android:text="Nickname"
+        app:layout_constraintBottom_toTopOf="@+id/character_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.211"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
 
@@ -35,20 +36,18 @@
         style="@style/MaterialLightSubheadone"
         android:layout_width="191dp"
         android:layout_height="25dp"
-        android:layout_marginTop="8dp"
         android:text="nickname"
-        app:layout_constraintStart_toStartOf="@+id/name_label"
-        app:layout_constraintTop_toBottomOf="@+id/name_label" />
+        app:layout_constraintBottom_toTopOf="@+id/nickname_label"
+        app:layout_constraintStart_toStartOf="@+id/name_label" />
 
     <TextView
         android:id="@+id/nickname_label"
         style="@style/MaterialLightBody1Secondary"
         android:layout_width="194dp"
         android:layout_height="25dp"
-        android:layout_marginTop="16dp"
         android:text="DOB (Age)"
-        app:layout_constraintStart_toStartOf="@+id/character_name"
-        app:layout_constraintTop_toBottomOf="@+id/character_name" />
+        app:layout_constraintBottom_toTopOf="@+id/character_nickname"
+        app:layout_constraintStart_toStartOf="@+id/character_name" />
 
     <TextView
 
@@ -56,21 +55,19 @@
         style="@style/MaterialLightSubhead"
         android:layout_width="191dp"
         android:layout_height="25dp"
-        android:layout_marginTop="8dp"
         android:text="23-34-4444"
-        app:layout_constraintStart_toStartOf="@+id/nickname_label"
-        app:layout_constraintTop_toBottomOf="@+id/nickname_label" />
+        app:layout_constraintBottom_toTopOf="@+id/dob_label"
+        app:layout_constraintStart_toStartOf="@+id/nickname_label" />
 
     <TextView
         android:id="@+id/dob_label"
         style="@style/MaterialLightBody1Secondary"
         android:layout_width="194dp"
         android:layout_height="25dp"
-        android:layout_marginTop="8dp"
         android:text="Occupation"
+        app:layout_constraintBottom_toTopOf="@+id/character_dob"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/character_nickname"
-        app:layout_constraintTop_toBottomOf="@+id/character_nickname" />
+        app:layout_constraintStart_toStartOf="@+id/character_nickname" />
 
     <TextView
 
@@ -78,20 +75,18 @@
         style="@style/MaterialLightSubhead"
         android:layout_width="191dp"
         android:layout_height="25dp"
-        android:layout_marginTop="8dp"
         android:text="Teacher"
-        app:layout_constraintStart_toStartOf="@+id/dob_label"
-        app:layout_constraintTop_toBottomOf="@+id/dob_label" />
+        app:layout_constraintBottom_toTopOf="@+id/potrayed_label"
+        app:layout_constraintStart_toStartOf="@+id/dob_label" />
 
     <TextView
         android:id="@+id/potrayed_label"
         style="@style/MaterialLightBody1Secondary"
         android:layout_width="194dp"
         android:layout_height="25dp"
-        android:layout_marginTop="16dp"
         android:text="Potrayed"
-        app:layout_constraintStart_toStartOf="@+id/character_dob"
-        app:layout_constraintTop_toBottomOf="@+id/character_dob" />
+        app:layout_constraintBottom_toTopOf="@+id/character_potrayed"
+        app:layout_constraintStart_toStartOf="@+id/character_dob" />
 
     <TextView
 
@@ -99,10 +94,10 @@
         style="@style/MaterialLightSubhead"
         android:layout_width="191dp"
         android:layout_height="25dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="44dp"
         android:text="Bruce mang mang"
-        app:layout_constraintStart_toStartOf="@+id/potrayed_label"
-        app:layout_constraintTop_toBottomOf="@+id/potrayed_label" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/potrayed_label" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
