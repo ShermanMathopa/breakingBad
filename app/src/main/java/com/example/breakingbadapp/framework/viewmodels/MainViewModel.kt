@@ -9,6 +9,5 @@ import com.example.breakingbadapp.repository.CharacterRepository
 
 class MainViewModel @ViewModelInject constructor(characterRepository: CharacterRepository): ViewModel() {
 
-    // TODO: Implement the ViewModel
     val characters : LiveData<List<CharactersModel>> = characterRepository.getCharacters()
 }

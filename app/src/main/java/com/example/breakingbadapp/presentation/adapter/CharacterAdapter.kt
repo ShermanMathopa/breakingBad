@@ -15,38 +15,35 @@ import java.time.LocalDate
 import java.time.Period
 import java.util.*
 
-class CharacterAdapter(val characters: List<CharactersModel>, val action: ListAction): RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
+class CharacterAdapter(private val characters: List<CharactersModel>, val action: ListAction) :
+    RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        val name: TextView = itemView.findViewById<TextView>(R.id.character_name)
-        val characterImage: ImageView = itemView.findViewById<ImageView>(R.id.characterImage)
-        val characterNickname: TextView = itemView.findViewById<TextView>(R.id.character_nickname)
-        val character_dob: TextView = itemView.findViewById<TextView>(R.id.character_dob)
-
+        private val name: TextView = itemView.findViewById(R.id.character_name)
+        private val characterImage: ImageView = itemView.findViewById(R.id.characterImage)
+        private val characterNickname: TextView = itemView.findViewById(R.id.character_nickname)
+        private val characterDob: TextView = itemView.findViewById(R.id.character_dob)
 
         @SuppressLint("SetTextI18n")
         fun bindCharacter(character: CharactersModel) {
             name.text = character.name
             characterNickname.text = character.nickname
-
             if (character.dateOfBirth == "Unknown") {
-                character_dob.text = character.dateOfBirth
+                characterDob.text = character.dateOfBirth
             } else {
-                character_dob.text = "${character.dateOfBirth} (${calculateAge(character.dateOfBirth!!)})"
+                characterDob.text =
+                    "${character.dateOfBirth} (${calculateAge(character.dateOfBirth!!)})"
             }
             Glide.with(itemView.context)
                 .load(character.characterImageUri)
                 .into(characterImage)
-
-            itemView.setOnClickListener { action.onClick(character.id,
-                character.nickname!!,
-                character.dateOfBirth!!, character.characterImageUri!!, character.portrayed!! ) }
-
-
-            //age- formatted
-            // dateOfBirth.text = "\(character.dob) (\(character.age))" 1942-02-02 (45)
-            // dateOfBirth.text = character.birth
+            itemView.setOnClickListener {
+                action.onClick(
+                    character.id,
+                    character.nickname!!,
+                    character.dateOfBirth, character.characterImageUri!!, character.portrayed!!
+                )
+            }
         }
 
     }
@@ -67,17 +64,18 @@ class CharacterAdapter(val characters: List<CharactersModel>, val action: ListAc
     }
 
 }
+
 @SuppressLint("SimpleDateFormat")
-private fun calculateAge(dob : String) : Int{
+private fun calculateAge(dob: String): Int {
     val simpleDateFormat = SimpleDateFormat("MM-dd-yyyy")
-    val date1 = simpleDateFormat.parse(dob)
+    val parseDate = simpleDateFormat.parse(dob)
 
     val calendar = Calendar.getInstance()
-    calendar.time = date1
+    calendar.time = parseDate!!
     val year: Int = calendar.get(Calendar.YEAR)
     val month: Int = calendar.get(Calendar.MONTH) + 1
     val date: Int = calendar.get(Calendar.DATE)
-    val l1: LocalDate = LocalDate.of(year,month, date)
+    val l1: LocalDate = LocalDate.of(year, month, date)
     val now1: LocalDate = LocalDate.now()
     val diff1: Period = Period.between(l1, now1)
 
