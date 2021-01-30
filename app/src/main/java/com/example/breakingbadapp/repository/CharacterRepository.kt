@@ -28,4 +28,7 @@ class CharacterRepository @Inject constructor(private val webservice: WebService
         })
         return data
     }
+    fun getCharacter(id : Long) {
+
+    }
 }

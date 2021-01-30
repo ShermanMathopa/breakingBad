@@ -5,14 +5,14 @@
   <data>
     <variable
         name="viewModel"
-        type="com.example.breakingbadapp.framework.viewmodels.MainViewModel"/>
+        type="com.example.breakingbadapp.framework.viewmodels.CharacterListViewModel"/>
 
   </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MainFragment">
+    tools:context=".ui.main.CharacterListFragment">
 
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/character_list_view"

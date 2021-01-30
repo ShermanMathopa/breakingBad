@@ -12,7 +12,7 @@ data class CharactersModel (
         val name : String? = null,
         @Expose
         @SerializedName("birthday")
-        val dateOfBirth: String? = null,
+        val dateOfBirth: String,
         @Expose
         @SerializedName("img")
         val characterImageUri: String? = null,
@@ -21,10 +21,10 @@ data class CharactersModel (
         val nickname: String? = null,
         @Expose
         @SerializedName("portrayed")
-        val portrayed: String? = null
-//        @Expose
-//        @SerializedName( "occupation")
-//        val  occupation: List<String>? = null
+        val portrayed: String? = null,
+       @Expose
+       @SerializedName( "occupation")
+       val  occupation: List<String>? = null
 
 )
 //    {"char_id":1,"name":"Walter White",

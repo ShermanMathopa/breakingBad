@@ -1,10 +1,8 @@
 package com.example.breakingbadapp.presentation.adapter
 
+import com.example.breakingbadapp.framework.viewmodels.CharacterViewData
+
 interface ListAction {
-    fun onClick(id: Long,
-                nickname : String,
-                dateOfBirth : String,
-                image : String,
-                portrayed : String
+    fun onClick(character:CharacterViewData
     )
 }

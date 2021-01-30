@@ -12,18 +12,19 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.breakingbadapp.R
-import com.example.breakingbadapp.framework.viewmodels.MainViewModel
+import com.example.breakingbadapp.framework.viewmodels.CharacterListViewModel
+import com.example.breakingbadapp.framework.viewmodels.CharacterViewData
 import com.example.breakingbadapp.presentation.adapter.CharacterAdapter
 import com.example.breakingbadapp.presentation.adapter.ListAction
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.main_fragment.*
 
 @AndroidEntryPoint
-class MainFragment : Fragment(), ListAction {
+class CharacterListFragment : Fragment(), ListAction {
 
     private lateinit var progressDialog: ProgressBar
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: CharacterListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,20 +49,15 @@ class MainFragment : Fragment(), ListAction {
 
     }
 
-    private fun goToCharacterDetails(id: Long = 0L, nickname: String, dateOfBirth: String, image: String,portrayed: String) {
-        val action = MainFragmentDirections.actionMainFragmentToCharacterFragment(id, nickname, dateOfBirth, image, portrayed)
-        //findNavController().navigate(action)
+    private fun goToCharacterDetails(character: CharacterViewData) {
+
+        //TODO pass in characterViewData - find out how to do it in nav graph
+        val action = CharacterListFragmentDirections.actionMainFragmentToCharacterFragment(character.id, character.dob, character.imageUrl, )
         Navigation.findNavController(character_list_view).navigate(action)
     }
 
-    override fun onClick(
-        id: Long,
-        nickname: String,
-        dateOfBirth: String,
-        image: String,
-        portrayed: String
-    ) {
-        goToCharacterDetails(id, nickname, dateOfBirth, image, portrayed)
+    override fun onClick(character: CharacterViewData) {
+        goToCharacterDetails(character)
     }
 
 }

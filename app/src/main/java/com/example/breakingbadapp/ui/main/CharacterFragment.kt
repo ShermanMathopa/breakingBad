@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.breakingbadapp.R
+import com.example.breakingbadapp.framework.viewmodels.CharacterViewData
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.character_fragment.*
 
@@ -20,7 +21,7 @@ class CharacterFragment : Fragment() {
         return inflater.inflate(R.layout.character_fragment, container, false)
 
     }
-
+ //TODO search nav-graph xml parcelable
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         arguments?.getLong("char_id")

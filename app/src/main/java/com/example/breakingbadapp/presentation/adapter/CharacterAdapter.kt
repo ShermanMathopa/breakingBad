@@ -10,12 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.breakingbadapp.R
 import com.example.breakingbadapp.framework.data.CharactersModel
+import com.example.breakingbadapp.framework.viewmodels.CharacterViewData
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.Period
 import java.util.*
 
-class CharacterAdapter(private val characters: List<CharactersModel>, val action: ListAction) :
+class CharacterAdapter(private val characters: List<CharacterViewData>, val action: ListAction) :
     RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -25,23 +26,17 @@ class CharacterAdapter(private val characters: List<CharactersModel>, val action
         private val characterDob: TextView = itemView.findViewById(R.id.character_dob)
 
         @SuppressLint("SetTextI18n")
-        fun bindCharacter(character: CharactersModel) {
+        fun bindCharacter(character: CharacterViewData) {
             name.text = character.name
-            characterNickname.text = character.nickname
-            if (character.dateOfBirth == "Unknown") {
-                characterDob.text = character.dateOfBirth
-            } else {
-                characterDob.text =
-                    "${character.dateOfBirth} (${calculateAge(character.dateOfBirth!!)})"
-            }
+            characterNickname.text = character.nickName
+            characterDob.text = character.dob
             Glide.with(itemView.context)
-                .load(character.characterImageUri)
+                .load(character.imageUrl)
                 .into(characterImage)
             itemView.setOnClickListener {
                 action.onClick(
-                    character.id,
-                    character.nickname!!,
-                    character.dateOfBirth, character.characterImageUri!!, character.portrayed!!
+                    character
+                //TODO change onclick to handle characterViewData
                 )
             }
         }
