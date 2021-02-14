@@ -34,5 +34,8 @@
         <argument
             android:name="portrayed"
             app:argType="string" />
+        <argument
+            android:name="occupation"
+            app:argType="string[]" />
     </fragment>
 </navigation>

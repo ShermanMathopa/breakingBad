@@ -10,10 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.breakingbadapp.R
 import com.example.breakingbadapp.framework.viewmodels.CharacterViewData
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.Period
-import java.util.*
 
 class CharacterAdapter(private val characters: List<CharacterViewData>, val action: ListAction) :
     RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
@@ -32,9 +28,15 @@ class CharacterAdapter(private val characters: List<CharacterViewData>, val acti
             Glide.with(itemView.context)
                 .load(character.imageUrl)
                 .into(characterImage)
+
             itemView.setOnClickListener {
                 action.onClick(
-                    character
+                    character.id,
+                    character.nickName!!,
+                    character.dob,
+                    character.imageUrl!!,
+                    character.portrayed!!,
+                    character.occupation!!
                 //TODO change onclick to handle characterViewData
                 )
             }
@@ -57,21 +59,4 @@ class CharacterAdapter(private val characters: List<CharacterViewData>, val acti
         holder.bindCharacter(character)
     }
 
-}
-
-@SuppressLint("SimpleDateFormat")
-private fun calculateAge(dob: String): Int {
-    val simpleDateFormat = SimpleDateFormat("MM-dd-yyyy")
-    val parseDate = simpleDateFormat.parse(dob)
-
-    val calendar = Calendar.getInstance()
-    calendar.time = parseDate!!
-    val year: Int = calendar.get(Calendar.YEAR)
-    val month: Int = calendar.get(Calendar.MONTH) + 1
-    val date: Int = calendar.get(Calendar.DATE)
-    val l1: LocalDate = LocalDate.of(year, month, date)
-    val now1: LocalDate = LocalDate.now()
-    val diff1: Period = Period.between(l1, now1)
-
-    return diff1.years
 }

@@ -15,7 +15,5 @@ class DateTimeUtils {
 
         fun getYearsSince(date: LocalDate): Int =
             ChronoUnit.YEARS.between(date, getCurrentLocalDate()).toInt()
-
-
     }
 }

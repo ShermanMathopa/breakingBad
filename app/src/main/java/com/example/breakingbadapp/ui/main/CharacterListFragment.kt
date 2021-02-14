@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.breakingbadapp.R
 import com.example.breakingbadapp.framework.viewmodels.CharacterListViewModel
-import com.example.breakingbadapp.framework.viewmodels.CharacterViewData
 import com.example.breakingbadapp.presentation.adapter.CharacterAdapter
 import com.example.breakingbadapp.presentation.adapter.ListAction
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,15 +48,23 @@ class CharacterListFragment : Fragment(), ListAction {
 
     }
 
-    private fun goToCharacterDetails(character: CharacterViewData) {
+    private fun goToCharacterDetails(
+        id: Long = 0L, nickname: String, dateOfBirth: String, image: String,
+        portrayed: String, occupation: Array<String>) {
 
         //TODO pass in characterViewData - find out how to do it in nav graph
-        val action = CharacterListFragmentDirections.actionMainFragmentToCharacterFragment(character.id, character.nickName!!, character.imageUrl!!, character.portrayed!!, character.occupation!!)
+        val action = CharacterListFragmentDirections.actionMainFragmentToCharacterFragment(id, nickname, dateOfBirth, image, portrayed, occupation)
         Navigation.findNavController(character_list_view).navigate(action)
     }
 
-    override fun onClick(character: CharacterViewData) {
-        goToCharacterDetails(character)
+    override fun onClick(
+        id: Long,
+        nickname: String,
+        dateOfBirth: String,
+        image: String,
+        portrayed: String,
+        occupation: List<String>) {
+        goToCharacterDetails(id, nickname, dateOfBirth, image, portrayed, occupation.toTypedArray())
     }
 
 }
