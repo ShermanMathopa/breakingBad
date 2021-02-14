@@ -52,7 +52,7 @@ class CharacterListFragment : Fragment(), ListAction {
     private fun goToCharacterDetails(character: CharacterViewData) {
 
         //TODO pass in characterViewData - find out how to do it in nav graph
-        val action = CharacterListFragmentDirections.actionMainFragmentToCharacterFragment(character.id, character.dob, character.imageUrl, )
+        val action = CharacterListFragmentDirections.actionMainFragmentToCharacterFragment(character.id, character.nickName!!, character.imageUrl!!, character.portrayed!!, character.occupation!!)
         Navigation.findNavController(character_list_view).navigate(action)
     }
 

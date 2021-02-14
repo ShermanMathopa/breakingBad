@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.breakingbadapp.R
-import com.example.breakingbadapp.framework.data.CharactersModel
 import com.example.breakingbadapp.framework.viewmodels.CharacterViewData
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -20,10 +19,10 @@ class CharacterAdapter(private val characters: List<CharacterViewData>, val acti
     RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val name: TextView = itemView.findViewById(R.id.character_name)
+        private val name: TextView = itemView.findViewById(R.id.nickName)
         private val characterImage: ImageView = itemView.findViewById(R.id.characterImage)
-        private val characterNickname: TextView = itemView.findViewById(R.id.character_nickname)
-        private val characterDob: TextView = itemView.findViewById(R.id.character_dob)
+        private val characterNickname: TextView = itemView.findViewById(R.id.character_dateOfBirth)
+        private val characterDob: TextView = itemView.findViewById(R.id.character_occupation)
 
         @SuppressLint("SetTextI18n")
         fun bindCharacter(character: CharacterViewData) {

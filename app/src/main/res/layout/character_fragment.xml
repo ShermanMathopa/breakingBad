@@ -25,14 +25,14 @@
         android:layout_width="194dp"
         android:layout_height="25dp"
         android:text="Nickname"
-        app:layout_constraintBottom_toTopOf="@+id/character_name"
+        app:layout_constraintBottom_toTopOf="@+id/nickName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.211"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
 
-        android:id="@+id/character_name"
+        android:id="@+id/nickName"
         style="@style/MaterialLightSubheadone"
         android:layout_width="191dp"
         android:layout_height="25dp"
@@ -46,12 +46,12 @@
         android:layout_width="194dp"
         android:layout_height="25dp"
         android:text="DOB (Age)"
-        app:layout_constraintBottom_toTopOf="@+id/character_nickname"
-        app:layout_constraintStart_toStartOf="@+id/character_name" />
+        app:layout_constraintBottom_toTopOf="@+id/character_dateOfBirth"
+        app:layout_constraintStart_toStartOf="@+id/nickName" />
 
     <TextView
 
-        android:id="@+id/character_nickname"
+        android:id="@+id/character_dateOfBirth"
         style="@style/MaterialLightSubhead"
         android:layout_width="191dp"
         android:layout_height="25dp"
@@ -65,13 +65,13 @@
         android:layout_width="194dp"
         android:layout_height="25dp"
         android:text="Occupation"
-        app:layout_constraintBottom_toTopOf="@+id/character_dob"
+        app:layout_constraintBottom_toTopOf="@+id/character_occupation"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/character_nickname" />
+        app:layout_constraintStart_toStartOf="@+id/character_dateOfBirth" />
 
     <TextView
 
-        android:id="@+id/character_dob"
+        android:id="@+id/character_occupation"
         style="@style/MaterialLightSubhead"
         android:layout_width="191dp"
         android:layout_height="25dp"
@@ -86,7 +86,7 @@
         android:layout_height="25dp"
         android:text="Potrayed"
         app:layout_constraintBottom_toTopOf="@+id/character_potrayed"
-        app:layout_constraintStart_toStartOf="@+id/character_dob" />
+        app:layout_constraintStart_toStartOf="@+id/character_occupation" />
 
     <TextView
 
