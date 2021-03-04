@@ -1,4 +1,4 @@
-package com.example.breakingbadapp
+package com.example.breakingbadapp.utils
 
 import java.time.LocalDate
 import java.time.ZoneId
@@ -11,9 +11,12 @@ class DateTimeUtils {
 
         fun getCurrentDateTime(): ZonedDateTime = ZonedDateTime.now(defaultZoneId)
 
-        fun getCurrentLocalDate(): LocalDate = getCurrentDateTime().toLocalDate()
+        fun getCurrentLocalDate(): LocalDate = getCurrentDateTime()
+            .toLocalDate()
 
         fun getYearsSince(date: LocalDate): Int =
-            ChronoUnit.YEARS.between(date, getCurrentLocalDate()).toInt()
+            ChronoUnit.YEARS.between(date,
+                getCurrentLocalDate()
+            ).toInt()
     }
 }
