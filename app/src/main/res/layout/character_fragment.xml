@@ -14,7 +14,6 @@
             android:layout_width="260dp"
             android:layout_height="330dp"
             android:layout_marginTop="24dp"
-            android:src="@drawable/male"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -22,9 +21,9 @@
 
         <TextView
             android:id="@+id/nickname_text"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="32dp"
             android:text="Nickname:"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +35,7 @@
             style="@style/MaterialLightSubheadone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="10dp"
             android:text="Steve Jobs"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,20 +46,20 @@
             android:id="@+id/dob_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="10dp"
-            android:text="DOB (Age):"
+            android:text="DOB (Age)"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/character_detail_nickname" />
 
         <TextView
             android:id="@+id/character_detail_dob"
-            style="@style/MaterialLightSubhead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="10dp"
             android:text="23 3434 (45)"
+            style="@style/MaterialLightSubhead"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dob_text" />
 
@@ -68,20 +67,20 @@
             android:id="@+id/occupation_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="10dp"
-            android:text="Occupation:"
+            android:text="Occupation"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/character_detail_dob" />
 
         <TextView
             android:id="@+id/character_detail_occupation"
-            style="@style/MaterialLightSubhead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="10dp"
-            android:text="[High School Chemistry Teacher,Meth King Pin]"
+            style="@style/MaterialLightSubhead"
+            android:text="[jbcjbcbe, nwowfwofbwfo.]"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/occupation_text" />
 
@@ -89,20 +88,20 @@
             android:id="@+id/potrayed_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="10dp"
-            android:text="Portrayed:"
+            android:text="Portrayed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/character_detail_occupation" />
 
         <TextView
             android:id="@+id/character_detal_potrayed"
-            style="@style/MaterialLightSubhead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="10dp"
             android:text="Mr Somebody"
+            style="@style/MaterialLightSubhead"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/potrayed_text" />
 

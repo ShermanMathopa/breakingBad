@@ -1,9 +1,9 @@
 package com.example.breakingbadapp.data.remote
 
 
-import android.util.Log
 import com.example.breakingbadapp.utils.Resource
 import retrofit2.Response
+import timber.log.Timber
 
 
 abstract class BaseDataSource {
@@ -22,7 +22,7 @@ abstract class BaseDataSource {
     }
 
     private fun <T> error(message: String): Resource<T> {
-        Log.d("error", message)
+        Timber.d(message)
         return Resource.error("Network call has failed for a following reason: $message")
     }
 

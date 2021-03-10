@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout  xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="16dp"
@@ -22,7 +23,7 @@
 
     <TextView
 
-        android:id="@+id/nickName"
+        android:id="@+id/CharacterName"
         style="@style/MaterialLightSubheadone"
         android:layout_width="191dp"
         android:layout_height="25dp"
@@ -42,7 +43,7 @@
         android:text="Nickname"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toEndOf="@+id/characterImage"
-        app:layout_constraintTop_toBottomOf="@+id/nickName" />
+        app:layout_constraintTop_toBottomOf="@+id/CharacterName" />
 
     <ImageView
         android:id="@+id/characterImage"
@@ -61,7 +62,7 @@
 
     <TextView
 
-        android:id="@+id/character_dateOfBirth"
+        android:id="@+id/characterNickname"
         style="@style/MaterialLightSubhead"
         android:layout_width="191dp"
         android:layout_height="25dp"
@@ -80,11 +81,11 @@
         android:text="DOB (Age)"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="@+id/nickname_label"
-        app:layout_constraintTop_toBottomOf="@+id/character_dateOfBirth" />
+        app:layout_constraintTop_toBottomOf="@+id/characterNickname" />
 
     <TextView
 
-        android:id="@+id/character_occupation"
+        android:id="@+id/character_dob_age"
         style="@style/MaterialLightSubhead"
         android:layout_width="191dp"
         android:layout_height="25dp"
